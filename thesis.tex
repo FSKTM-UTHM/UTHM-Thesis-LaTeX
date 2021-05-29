@@ -1,0 +1,166 @@
+%This latex template for UTHM Thesis is updated by Aamir Khan 2018
+%This file is modified by Dr. Rashid Naseem in 2015
+%This file is modified by Dr. Malik Imran in 2013
+%If you have any problem regarding the template format
+%please contact me on amirr.khan1@gmail.com
+
+\documentclass[english]{uthmthesis}
+
+%options [english, malay, final, draft]
+%define whatever packages here
+\usepackage{graphicx, url, longtable, enumerate, setspace, amsmath, color, natbib}
+
+\usepackage{caption}
+\usepackage{booktabs,xcolor}
+\definecolor{lightgray}{gray}{0.92}
+
+\graphicspath{{./source/fig/}}
+\usepackage{pdflscape} % to make a page(s) land scape 
+\usepackage{parskip}
+\usepackage{amsthm}
+\usepackage[justification=centering]{caption}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{rotating}
+\usepackage{amsfonts}
+\usepackage{xparse}
+
+\usepackage{array,tabularx}
+\usepackage{graphbox}
+
+\newtheorem{theorem}{Theorem} 
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{axiom}{Axiom}
+\newtheorem{definition}{Definition}
+
+
+\setlength{\parskip}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+%\setlength{\headsep}{5pt}
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{4pt}{*4}{*4}
+\titlespacing{\subsection}{4pt}{*4}{*4}
+\titlespacing{\subsubsection}{4pt}{*4}{*4}
+ 
+%Added by MAK
+\usepackage{comment}
+\usepackage{float}
+\usepackage{threeparttable}
+\usepackage{pdfpages}
+\usepackage{enumitem}
+\usepackage{algorithm,algorithmic}
+\usepackage{xr}
+\usepackage{amssymb}
+\usepackage{framed}
+\usepackage[section]{placeins}
+\usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{2212}{\textendash}
+%\newenvironment{conditions}[1][where:]
+%{\singlespace#1 \begin{tabular}[t]{>{$}l<{$} @{${}:{}$} l}}
+%	{\doublespace\end{tabular}\\[\belowdisplayskip]}
+%
+%\newenvironment{conditions*}[1][where:]
+%{#1 \begin{tabular}[t]{>{$}l<{$} @{}>{${}}c<{{}$}@{} l}}
+%	{\end{tabular}\\[\belowdisplayskip]}
+
+%for quote
+\let\oldquote\quote
+\let\endoldquote\endquote
+\renewenvironment{quote}[2][]
+{\if\relax\detokenize{#1}\relax
+	\def\quoteauthor{#2}%
+	\else
+	\def\quoteauthor{#2~---~#1}%
+	\fi
+	\oldquote}
+{\par\nobreak\smallskip\hfill(\quoteauthor)%
+	\endoldquote\addvspace{\bigskipamount}}
+
+
+%\renewcommand{\chaptername}{}
+%thesis info
+\title{ Thesis Title }  
+%Thesis/Dissertation/Project Report title. Use this alone if you want Latex to auto adjust your title.
+%\titletwo{The Thesis Title Line 2} 			%This is the optional second line, because you may want to define separate lines yourself.
+%\titlethree{The Thesis Title Line 3}		%This is the optional third line.
+\author{Author name}                         %The author
+\degree{Degree}                        %The official degree title, e.g., Bachelor in Electrical Engineering
+\faculty{Faculty}               %The faculty
+\titledate{Month Year}                    %Month submitted
+\award{5}                                  %1. Bachelor Degree Project Report
+%2. Master's Project Report (By course work)
+%3. Master's Dissertation (By course work and research)
+%4. Master's Thesis (By research)
+%5. Doctor of Philosophy Thesis
+%6. Engineering Doctorate Thesis
+\superone{Supervisor}                    %Your supervisor. Uncomment below if to add more supervisors.
+
+\supertwo{Co Supervisor}
+
+%% Added by Mak, for TOC space updation
+%\setcounter{tocdepth}{3}  % To add the subsubsections to the ToC.
+%\renewcommand{\cftchappresnum}{\chaptername\ }
+%\renewcommand{\cftchapaftersnum}{~-~}  % To add "-" after the chapter's No.
+%\setlength{\cftchapnumwidth}{80pt}  % Width of chapter No.
+
+\begin{document}
+
+%All the prelim pages and such
+\preliminary[source/pre]                    %[sample/pre/] is the folder where your tex files are]
+                                            %Alternatively, you could manually define which pages to invoke
+                                            %\preliminary[pre] is equivalent to:
+                                            %\coverpage
+                                            %\superpage
+                                            %\certification
+                                            %\frontmatter
+    % texdoc tocstyle\chapter{(Chapter Name)}                                        %\maketitle
+                                            %\declaration
+                                            %\include{source/pre/dedication}
+                                            %\include{source/pre/acknowledgement}
+                                            %\include{source/pre/abstract}
+                                            %\include{source/pre/abstrak}
+                                            %\tableofcontents%
+                                            %\listoftables%
+                                            %\listoffigures%
+                                            %\include{source/pre/abbreviations}
+                                            %\include{source/pre/symbols}
+                                            %\include{source/pre/listofappendices}
+
+
+%the main chapters start here.
+\mainmatter
+\doublespacing % Added by Rashid 
+%include main chapters. You could use \include here
+
+\input source/main/chap1.tex
+\input source/main/chap2.tex
+\input source/main/chap3.tex
+\input source/main/chap4.tex
+\input source/main/chap5.tex
+\input source/main/chap6.tex
+
+
+%\newpage
+
+
+
+\setlength{\bibhang}{40pt} %Rashid >> To indent/move (hanging indentation) all lines except first for each reference in References 
+\bibliographystyle{apa-good}
+\bibliography{source/bib/mylib}         %where your bib file is
+
+
+%%Comment all lines below (and \include{source/pre/listofappendices} above) when has no appendices
+%\appendix
+%I tried \include but it doesn't work. \input will.
+%\input source/appendices/app1.tex
+% \input source/appendices/app2.tex
+
+%\endmatter
+
+\input source/pre/vita.tex
+
+\end{document}
