@@ -3,7 +3,40 @@
 \section{Introduction}
 
 \subsection{subsection 1}
+
+Formatting Tables
+
+
+%%table
+\begin{table}[H]
+	\caption{caption goes here}
+	\label{tab:label}
+	\centering
+	\fontsize{10}{11}\selectfont %fontsize of the inside content of the table
+  \begin{tabular}{|c|c|c|c|c|c|} \hline % number of 'c's represent the number of columns
+  	heading1 & heading1 & heading1 & heading1 & heading1 & heading1 \\ \hline	
+  	Row 1 & 1 & 2 & 3 & 4 & 5  \\ \hline
+    Row 2 & 1 & 2 & 3 & 4 & 5  \\ \hline
+	\end{tabular}
+\end{table}
+
 \subsection{subsection 2}
 
+Formatting Equations
+% if you want more explainaed examples goto https://www.docx2latex.com/tutorials/mathematical-equations-latex/
+\begin{equation} \label{eq:1}
+	A & = \frac{\pi r^2}{2}
+\end{equation}
+
+\subsection{Section 3}
+
+Formatting Figures
+% for more examples check https://www.overleaf.com/learn/latex/Positioning_images_and_tables
+\begin{figure}[h]  
+	\centering
+	\includegraphics[width=0.8\textwidth, height=5cm]{figures_path}
+	\caption{caption goes here} 
+	\label{fig:figurename}
+\end{figure}
 
 \section{Chapter Summary} \label{chapter2_summary}
